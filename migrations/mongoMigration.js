@@ -15,7 +15,7 @@ mongoose.connect(
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
-  db.db.listCollections().toArray(function (err, collectionNames) {
+  db.db.listCollections().then(function (err, collectionNames) {
     if (err) {
       console.log(err);
       return;

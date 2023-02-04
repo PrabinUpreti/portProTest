@@ -5,7 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon app.js --trace-deprecation",
+    "fake": "node fetch.js > data/faker.js",
+    "migration": "bash migration.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Prabin Raj Upreti <upretirajprabin@gmail.com>",

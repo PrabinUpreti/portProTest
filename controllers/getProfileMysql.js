@@ -1,3 +1,10 @@
+import { mysqlConnection } from "../connection/index.js";
 export const getProfileMysql = async (req, res, next) => {
-  res.send('<h1 style="text-align:center;">I am From MYSQL controller</h1>');
+  mysqlConnection((conn) => {
+    conn.query("SELECT * FROM Profile", (err, row) => {
+      if (err) return console.error("ERROR: " + err);
+      console.log(row);
+      res.send({ row });
+    });
+  });
 };
